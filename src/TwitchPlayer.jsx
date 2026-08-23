@@ -1,30 +1,43 @@
 import React, { useEffect, useState } from 'react';
 
+export default function TwitchPlayer({ channel }) {
+  const [embedUrl, setEmbedUrl] = useState('');
 
-function TwitchPlayer(channel) {
-    const [parentDomain, setParentDomain] = useState('');
-    useEffect(() => {
-        // Only runs on the client-side to safely get the current domain
-        if (typeof window !== 'undefined') {
-            // Strips ports (like :3000) so it works perfectly for both localhost and production
-            setParentDomain(window.location.hostname);
-        }
-    }, []);
+  useEffect(() => {
+    if (typeof window !== 'undefined' && channel) {
+      // 1. Extract clean domain names (strips out port numbers automatically)
+      const hostName = window.location.hostname;
+      const cleanChannel = channel.toLowerCase().trim();
 
-    // Prevent rendering the iframe until the parent domain is resolved
-    if (!parentDomain) return null;
+      // 2. Build parameters securely using the browser query utility
+      const params = new URLSearchParams();
+      params.append('channel', cleanChannel);
+      params.append('parent', hostName);
+      params.append('autoplay', 'true');
+
+      // 3. FORCE player.twitch.tv (DO NOT USE www.twitch.tv)
+      setEmbedUrl('https://player.twitch.tv/?' + params.toString());
+    }
+  }, [channel]);
+
+  if (!channel || !embedUrl) {
     return (
-        <iframe
-            src={`https://player.twitch.tv/?channel=${channel}&parent=${parentDomain}&autoplay=true`}
-            height="480"
-            width="720"
-            allowFullScreen={true}
-            frameBorder="0"
-            scrolling="no"
-            // Required so that the iframe can include tracking permissions.
-            allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"
-        ></iframe>
-    )
-};
+      <div className="twitch-responsive-container flex-center">
+        <span className="fallback-text">[ WAITING FOR TRAIN DEPARTURE ]</span>
+      </div>
+    );
+  }
 
-export default TwitchPlayer;
+  return (
+    <div className="twitch-responsive-container">
+      <iframe
+        src={embedUrl}
+        className="twitch-absolute-frame"
+        allowFullScreen={true}
+        scrolling="yes"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        title="Twitch Live Stream Embed"
+      ></iframe>
+    </div>
+  );
+}
