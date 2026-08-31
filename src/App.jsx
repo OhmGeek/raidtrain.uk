@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { Presets, SplitFlap } from 'react-split-flap'
 import './App.css'
 import TwitchPlayer from './TwitchPlayer'
+import DepartureBoard from './DepartureBoard'
 
 // 1. Define your schedule configuration here
 const RAID_SCHEDULE = [
@@ -14,7 +15,7 @@ const RAID_SCHEDULE = [
 function App() {
   const [timeString, setTimeString] = useState('')
   const [countdownString, setCountdownString] = useState('00:00:00')
-  
+
   // Track indices and scheduling reference anchors
   const [scheduleIndex, setScheduleIndex] = useState(0)
   const [trainStartTime] = useState(() => Date.now())
@@ -67,16 +68,6 @@ function App() {
     return () => clearInterval(timer)
   }, [scheduleIndex, trainStartTime])
 
-  // Helper function to pre-calculate absolute departure clock times for the board
-  const getDepartureTime = (index) => {
-    let accumulatedMinutes = 0
-    for (let i = 0; i < index; i++) {
-      accumulatedMinutes += RAID_SCHEDULE[i].durationMinutes
-    }
-    const departureTimestamp = trainStartTime + accumulatedMinutes * 60 * 1000
-    return new Date(departureTimestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
-  }
-
   return (
     <>
       <div className="train-station-container">
@@ -121,37 +112,7 @@ function App() {
         </div>
 
         {/* 2. THE UPCOMING DEPARTURES SCHEDULE BOARD */}
-        <div className="schedule-board">
-          <h2>UPCOMING DEPARTURES</h2>
-          <div className="board-header">
-            <span>TIME</span>
-            <span>DESTINATION</span>
-            <span>DURATION</span>
-            <span>STATUS</span>
-          </div>
-          <div className="board-rows">
-            {RAID_SCHEDULE.map((item, index) => {
-              // Hide completely completed blocks from previous stops
-              if (index < scheduleIndex) return null
-
-              const isCurrent = index === scheduleIndex
-              const departureTime = getDepartureTime(index)
-
-              return (
-                <div key={index} className={`board-row ${isCurrent ? 'active-row' : ''}`}>
-                  <span className="row-time">{departureTime}</span>
-                  <span className="row-name">{item.name}</span>
-                  <span className="row-duration">
-                    {item.durationMinutes > 0 ? `${item.durationMinutes} MIN` : '--'}
-                  </span>
-                  <span className="row-status">
-                    {isCurrent ? 'ALL ABOARD' : 'ON TIME'}
-                  </span>
-                </div>
-              )
-            })}
-          </div>
-        </div>
+        <DepartureBoard schedule={RAID_SCHEDULE} currentIndex={scheduleIndex} trainStartTime={trainStartTime} />
       </div>
     </>
   )

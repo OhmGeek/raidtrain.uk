@@ -1,24 +1,20 @@
-import React, { useEffect, useState } from 'react';
 
 export default function TwitchPlayer({ channel }) {
-  const [embedUrl, setEmbedUrl] = useState('');
+  let embedUrl = '';
+  if (typeof window !== 'undefined' && channel) {
+    // 1. Extract clean domain names (strips out port numbers automatically)
+    const hostName = window.location.hostname;
+    const cleanChannel = channel.toLowerCase().trim();
 
-  useEffect(() => {
-    if (typeof window !== 'undefined' && channel) {
-      // 1. Extract clean domain names (strips out port numbers automatically)
-      const hostName = window.location.hostname;
-      const cleanChannel = channel.toLowerCase().trim();
+    // 2. Build parameters securely using the browser query utility
+    const params = new URLSearchParams();
+    params.append('channel', cleanChannel);
+    params.append('parent', hostName);
+    params.append('autoplay', 'true');
 
-      // 2. Build parameters securely using the browser query utility
-      const params = new URLSearchParams();
-      params.append('channel', cleanChannel);
-      params.append('parent', hostName);
-      params.append('autoplay', 'true');
-
-      // 3. FORCE player.twitch.tv (DO NOT USE www.twitch.tv)
-      setEmbedUrl('https://player.twitch.tv/?' + params.toString());
-    }
-  }, [channel]);
+    // 3. FORCE player.twitch.tv (DO NOT USE www.twitch.tv)
+    embedUrl = 'https://player.twitch.tv/?' + params.toString();
+  }
 
   if (!channel || !embedUrl) {
     return (
