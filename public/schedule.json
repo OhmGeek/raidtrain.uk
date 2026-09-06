@@ -1,44 +1,146 @@
 [
   {
+    "day_date": "Fri Oct 30 2026 00:00:00 GMT+0000 (Greenwich Mean Time)",
     "twitch_channel": "ArrowInTheSky",
     "streamer_name": "ArrowInTheSky",
     "start_time_utc": "2026-10-30T12:00:00.000Z",
     "end_time_utc": "2026-10-30T14:00:00.000Z",
-    "discord_name": ""
+    "discord_name": null
   },
   {
+    "day_date": "Fri Oct 30 2026 00:00:00 GMT+0000 (Greenwich Mean Time)",
     "twitch_channel": "BuketDruart",
     "streamer_name": "BuketDruart",
     "start_time_utc": "2026-10-30T14:00:00.000Z",
     "end_time_utc": "2026-10-30T16:00:00.000Z",
-    "discord_name": ""
+    "discord_name": null
   },
   {
+    "day_date": "Fri Oct 30 2026 00:00:00 GMT+0000 (Greenwich Mean Time)",
     "twitch_channel": "makr_plays",
     "streamer_name": "makr_plays",
     "start_time_utc": "2026-10-30T16:00:00.000Z",
     "end_time_utc": "2026-10-30T18:00:00.000Z",
-    "discord_name": ""
+    "discord_name": null
   },
   {
+    "day_date": "Fri Oct 30 2026 00:00:00 GMT+0000 (Greenwich Mean Time)",
     "twitch_channel": "HammoMatMusic",
     "streamer_name": "HammoMatMusic",
     "start_time_utc": "2026-10-30T18:00:00.000Z",
     "end_time_utc": "2026-10-30T20:00:00.000Z",
-    "discord_name": ""
+    "discord_name": null
   },
   {
+    "day_date": "Fri Oct 30 2026 00:00:00 GMT+0000 (Greenwich Mean Time)",
     "twitch_channel": "DanDannLive",
     "streamer_name": "DanDannLive",
     "start_time_utc": "2026-10-30T20:00:00.000Z",
     "end_time_utc": "2026-10-30T22:00:00.000Z",
-    "discord_name": ""
+    "discord_name": null
   },
   {
+    "day_date": "Fri Oct 30 2026 00:00:00 GMT+0000 (Greenwich Mean Time)",
     "twitch_channel": "deadflyzmusic",
     "streamer_name": "deadflyzmusic",
     "start_time_utc": "2026-10-30T22:00:00.000Z",
     "end_time_utc": "2026-10-31T00:00:00.000Z",
-    "discord_name": ""
+    "discord_name": null
+  },
+  {
+    "day_date": "Sat Oct 31 2026 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    "twitch_channel": null,
+    "streamer_name": null,
+    "start_time_utc": "2026-10-31T00:00:00.000Z",
+    "end_time_utc": "2026-10-31T02:00:00.000Z",
+    "discord_name": null
+  },
+  {
+    "day_date": "Sat Oct 31 2026 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    "twitch_channel": null,
+    "streamer_name": null,
+    "start_time_utc": "2026-10-31T02:00:00.000Z",
+    "end_time_utc": "2026-10-31T04:00:00.000Z",
+    "discord_name": null
+  },
+  {
+    "day_date": "Sat Oct 31 2026 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    "twitch_channel": null,
+    "streamer_name": null,
+    "start_time_utc": "2026-10-31T04:00:00.000Z",
+    "end_time_utc": "2026-10-31T06:00:00.000Z",
+    "discord_name": null
+  },
+  {
+    "day_date": "Sat Oct 31 2026 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    "twitch_channel": null,
+    "streamer_name": null,
+    "start_time_utc": "2026-10-31T06:00:00.000Z",
+    "end_time_utc": "2026-10-31T08:00:00.000Z",
+    "discord_name": null
+  },
+  {
+    "day_date": "Sat Oct 31 2026 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    "twitch_channel": null,
+    "streamer_name": null,
+    "start_time_utc": "2026-10-31T08:00:00.000Z",
+    "end_time_utc": "2026-10-31T10:00:00.000Z",
+    "discord_name": null
+  },
+  {
+    "day_date": "Sat Oct 31 2026 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    "twitch_channel": null,
+    "streamer_name": null,
+    "start_time_utc": "2026-10-31T10:00:00.000Z",
+    "end_time_utc": "2026-10-31T12:00:00.000Z",
+    "discord_name": null
+  },
+  {
+    "day_date": "Sat Oct 31 2026 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    "twitch_channel": null,
+    "streamer_name": null,
+    "start_time_utc": "2026-10-31T12:00:00.000Z",
+    "end_time_utc": "2026-10-31T14:00:00.000Z",
+    "discord_name": null
+  },
+  {
+    "day_date": "Sat Oct 31 2026 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    "twitch_channel": null,
+    "streamer_name": null,
+    "start_time_utc": "2026-10-31T14:00:00.000Z",
+    "end_time_utc": "2026-10-31T16:00:00.000Z",
+    "discord_name": null
+  },
+  {
+    "day_date": "Sat Oct 31 2026 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    "twitch_channel": null,
+    "streamer_name": null,
+    "start_time_utc": "2026-10-31T16:00:00.000Z",
+    "end_time_utc": "2026-10-31T18:00:00.000Z",
+    "discord_name": null
+  },
+  {
+    "day_date": "Sat Oct 31 2026 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    "twitch_channel": null,
+    "streamer_name": null,
+    "start_time_utc": "2026-10-31T18:00:00.000Z",
+    "end_time_utc": "2026-10-31T20:00:00.000Z",
+    "discord_name": null
+  },
+  {
+    "day_date": "Sat Oct 31 2026 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    "twitch_channel": null,
+    "streamer_name": null,
+    "start_time_utc": "2026-10-31T20:00:00.000Z",
+    "end_time_utc": "2026-10-31T22:00:00.000Z",
+    "discord_name": null
+  },
+  {
+    "day_date": "Sat Oct 31 2026 00:00:00 GMT+0000 (Greenwich Mean Time)",
+    "twitch_channel": null,
+    "streamer_name": null,
+    "start_time_utc": "2026-10-31T22:00:00.000Z",
+    "end_time_utc": "2026-11-01T00:00:00.000Z",
+    "discord_name": null
   }
 ]
