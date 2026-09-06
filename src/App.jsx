@@ -3,6 +3,7 @@ import { Presets, SplitFlap } from 'react-split-flap'
 import './App.css'
 import TwitchPlayer from './TwitchPlayer'
 import DepartureBoard from './DepartureBoard'
+import CountdownToStart from './CountdownToStart'
 
 const POLL_INTERVAL_MS = 15 * 60 * 1000 // 15 minutes
 
@@ -125,31 +126,42 @@ function App() {
           </div>
         </header>
 
-        <div className="now-panel">
-          <div className="now-info">
-            <div className="now-label">NOW DEPARTING</div>
-            <div id="now-name">
-              <SplitFlap
-                value={displayName}
-                presets={Presets.ALPHA}
-                width={300}
-                height={100}
-              />
+        {activeIndex === -1 ? (
+          <div className="now-panel now-panel--pre-event">
+            <CountdownToStart
+              startTimeUtc={schedule.length > 0 ? schedule[0].start_time_utc : null}
+            />
+          </div>
+        ) : (
+          <div className="now-panel">
+            <div className="now-info">
+              <div className="now-label">NOW DEPARTING</div>
+              <div id="now-name">
+                <SplitFlap
+                  value={displayName}
+                  presets={Presets.ALPHA}
+                  width={300}
+                  height={100}
+                />
+              </div>
+              <div className="next-label">NEXT DEPARTURE IN</div>
+              <div id="countdown">
+                <SplitFlap
+                  value={countdownString}
+                  presets={Presets.NUM}
+                  width={300}
+                  height={100}
+                />
+              </div>
             </div>
-            <div className="next-label">NEXT DEPARTURE IN</div>
-            <div id="countdown">
-              <SplitFlap
-                value={countdownString}
-                presets={Presets.NUM}
-                width={300}
-                height={100}
+            <div id="twitch-wrap">
+              <TwitchPlayer
+                channel={displayChannel}
+                startTimeUtc={schedule.length > 0 ? schedule[0].start_time_utc : null}
               />
             </div>
           </div>
-          <div id="twitch-wrap">
-            <TwitchPlayer channel={displayChannel} />
-          </div>
-        </div>
+        )}
 
         <DepartureBoard schedule={schedule} activeIndex={activeIndex} />
       </div>

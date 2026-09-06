@@ -1,18 +1,14 @@
-
 export default function TwitchPlayer({ channel }) {
   let embedUrl = '';
   if (typeof window !== 'undefined' && channel) {
-    // 1. Extract clean domain names (strips out port numbers automatically)
     const hostName = window.location.hostname;
     const cleanChannel = channel.toLowerCase().trim();
 
-    // 2. Build parameters securely using the browser query utility
     const params = new URLSearchParams();
     params.append('channel', cleanChannel);
     params.append('parent', hostName);
     params.append('autoplay', 'true');
 
-    // 3. FORCE player.twitch.tv (DO NOT USE www.twitch.tv)
     embedUrl = 'https://player.twitch.tv/?' + params.toString();
   }
 

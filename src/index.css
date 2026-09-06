@@ -187,3 +187,81 @@
     background-color: #444;
     color: #fff;
   }
+
+  /* ── Countdown-to-start (shown in place of the now-panel before the event) ── */
+  .flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fallback-text {
+    color: #888;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+  }
+
+  .now-panel--pre-event {
+    justify-content: center;
+    align-items: center;
+    min-height: 160px;
+  }
+
+  .countdown-to-start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 32px 16px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .countdown-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    color: #888;
+  }
+
+  .countdown-digits {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  .countdown-unit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .countdown-number {
+    font-size: 3.5rem;
+    font-weight: bold;
+    line-height: 1;
+    color: #ffb300;
+    letter-spacing: 0.05em;
+  }
+
+  .countdown-unit-label {
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    color: #666;
+  }
+
+  .countdown-colon {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #555;
+    line-height: 1.1;
+    align-self: flex-start;
+    margin-top: 0.05em;
+  }
+
+  .countdown-date {
+    font-size: 0.7rem;
+    letter-spacing: 0.1em;
+    color: #666;
+  }
