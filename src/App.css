@@ -221,6 +221,32 @@
   font-size: 1.1rem;
 }
 
+.row-time {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.row-time-clock {
+  font-size: 1.1rem;
+}
+
+.row-time-date {
+  font-size: 0.75rem;
+  color: #888;
+}
+
+.row-twitch-link {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dashed #555;
+}
+
+.row-twitch-link:hover {
+  color: #9147ff;
+  border-bottom-color: #9147ff;
+}
+
 .active-row {
   background-color: rgba(255, 183, 3, 0.1);
   color: #ffb703;

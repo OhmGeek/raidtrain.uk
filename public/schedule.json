@@ -1,0 +1,44 @@
+[
+  {
+    "twitch_channel": "ArrowInTheSky",
+    "streamer_name": "ArrowInTheSky",
+    "start_time_utc": "2026-10-30T12:00:00.000Z",
+    "end_time_utc": "2026-10-30T14:00:00.000Z",
+    "discord_name": ""
+  },
+  {
+    "twitch_channel": "BuketDruart",
+    "streamer_name": "BuketDruart",
+    "start_time_utc": "2026-10-30T14:00:00.000Z",
+    "end_time_utc": "2026-10-30T16:00:00.000Z",
+    "discord_name": ""
+  },
+  {
+    "twitch_channel": "makr_plays",
+    "streamer_name": "makr_plays",
+    "start_time_utc": "2026-10-30T16:00:00.000Z",
+    "end_time_utc": "2026-10-30T18:00:00.000Z",
+    "discord_name": ""
+  },
+  {
+    "twitch_channel": "HammoMatMusic",
+    "streamer_name": "HammoMatMusic",
+    "start_time_utc": "2026-10-30T18:00:00.000Z",
+    "end_time_utc": "2026-10-30T20:00:00.000Z",
+    "discord_name": ""
+  },
+  {
+    "twitch_channel": "DanDannLive",
+    "streamer_name": "DanDannLive",
+    "start_time_utc": "2026-10-30T20:00:00.000Z",
+    "end_time_utc": "2026-10-30T22:00:00.000Z",
+    "discord_name": ""
+  },
+  {
+    "twitch_channel": "deadflyzmusic",
+    "streamer_name": "deadflyzmusic",
+    "start_time_utc": "2026-10-30T22:00:00.000Z",
+    "end_time_utc": "2026-10-31T00:00:00.000Z",
+    "discord_name": ""
+  }
+]
