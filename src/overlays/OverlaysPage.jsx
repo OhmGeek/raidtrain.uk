@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import SiteFooter from '../SiteFooter'
 import '../App.css'
 import './overlays.css'
 
@@ -65,6 +66,7 @@ export default function OverlaysPage() {
           </section>
         )
       })}
+      <SiteFooter />
     </div>
   )
 }

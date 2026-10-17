@@ -9,3 +9,6 @@ export const JUSTGIVING_APP_ID = '5bffc41a'
 // is "page/foo" - without it the REST API returns 404.
 // Streamers can override this per overlay with ?page=<short-name>
 export const JUSTGIVING_PAGE = 'page/twitch-raidtrain-2026-for-mft'
+
+export const JUSTGIVING_URL = `https://www.justgiving.com/${JUSTGIVING_PAGE}`
+export const CHARITY_EVENT_URL = 'https://mftcharity.org.uk/events/twitch-charity-raid-train/'
