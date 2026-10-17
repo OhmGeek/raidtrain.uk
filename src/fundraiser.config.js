@@ -12,3 +12,4 @@ export const JUSTGIVING_PAGE = 'page/twitch-raidtrain-2026-for-mft'
 
 export const JUSTGIVING_URL = `https://www.justgiving.com/${JUSTGIVING_PAGE}`
 export const CHARITY_EVENT_URL = 'https://mftcharity.org.uk/events/twitch-charity-raid-train/'
+export const MEDICINEMA_URL = 'https://mftcharity.org.uk/campaigns/medicinema/'

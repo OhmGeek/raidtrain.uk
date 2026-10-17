@@ -1,6 +1,6 @@
 import DonationProgress from './DonationProgress'
 import { useFundraiser } from './justgiving'
-import { CHARITY_EVENT_URL, JUSTGIVING_PAGE, JUSTGIVING_URL } from './fundraiser.config'
+import { CHARITY_EVENT_URL, JUSTGIVING_PAGE, JUSTGIVING_URL, MEDICINEMA_URL } from './fundraiser.config'
 
 const TOTALS_INTERVAL_MS = 60 * 1000
 
@@ -31,7 +31,8 @@ export default function EventHero({ schedule }) {
         <h2 className="event-hero__title">Twitch Charity Raid Train</h2>
         <p className="event-hero__text">
           Streamers raid from one channel to the next, around the clock, raising money for Royal
-          Manchester Children&apos;s Hospital and, this year, MediCinema.
+          Manchester Children&apos;s Hospital and, this year,{' '}
+          <a href={MEDICINEMA_URL} target="_blank" rel="noopener noreferrer">MediCinema</a>.
         </p>
         {totals && <DonationProgress totals={totals} className="jg-total--page" targetLabel="Target " />}
         <div className="event-hero__actions">
