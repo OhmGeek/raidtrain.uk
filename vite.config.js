@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { readFileSync } from 'fs'
-import { resolve } from 'path'
+import { copyFileSync, mkdirSync, readFileSync } from 'fs'
+import { dirname, resolve } from 'path'
 import { z } from 'zod'
 
 const ScheduleEntrySchema = z.object({
@@ -50,6 +50,26 @@ function validateSchedulePlugin() {
   }
 }
 
+// Client-side routes in src/main.jsx. GitHub Pages only serves files that exist,
+// so each route gets its own copy of index.html (served with a 200, unlike the
+// 404.html fallback, which matters for OBS browser sources).
+const STATIC_ROUTES = ['schedule', 'overlays', 'overlay/total', 'overlay/recent', 'overlay/top']
+
+function staticRoutesPlugin() {
+  return {
+    name: 'static-routes',
+    apply: 'build',
+    writeBundle({ dir }) {
+      const index = resolve(dir, 'index.html')
+      for (const target of [...STATIC_ROUTES.map((r) => `${r}/index.html`), '404.html']) {
+        const dest = resolve(dir, target)
+        mkdirSync(dirname(dest), { recursive: true })
+        copyFileSync(index, dest)
+      }
+    },
+  }
+}
+
 export default defineConfig({
-  plugins: [react(), validateSchedulePlugin()],
+  plugins: [react(), validateSchedulePlugin(), staticRoutesPlugin()],
 })
