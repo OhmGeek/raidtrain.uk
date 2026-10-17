@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Presets, SplitFlap } from 'react-split-flap'
 
 function calcParts(targetMs) {
   const diff = targetMs - Date.now()
@@ -43,7 +44,7 @@ export default function CountdownToStart({ startTimeUtc }) {
     weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
   })
   const startTime = new Date(startTimeUtc).toLocaleTimeString(undefined, {
-    hour: '2-digit', minute: '2-digit',
+    hour: '2-digit', minute: '2-digit', hourCycle: 'h23',
   })
 
   return (
@@ -51,22 +52,22 @@ export default function CountdownToStart({ startTimeUtc }) {
       <div className="countdown-label">TRAIN DEPARTS IN</div>
       <div className="countdown-digits" aria-live="polite" aria-atomic="true">
         <div className="countdown-unit">
-          <span className="countdown-number">{pad(parts.days)}</span>
+          <span className="countdown-number"><SplitFlap value={pad(parts.days)} chars={Presets.NUM} size="large" /></span>
           <span className="countdown-unit-label">DAYS</span>
         </div>
         <span className="countdown-colon">:</span>
         <div className="countdown-unit">
-          <span className="countdown-number">{pad(parts.hours)}</span>
+          <span className="countdown-number"><SplitFlap value={pad(parts.hours)} chars={Presets.NUM} size="large" /></span>
           <span className="countdown-unit-label">HRS</span>
         </div>
         <span className="countdown-colon">:</span>
         <div className="countdown-unit">
-          <span className="countdown-number">{pad(parts.mins)}</span>
+          <span className="countdown-number"><SplitFlap value={pad(parts.mins)} chars={Presets.NUM} size="large" /></span>
           <span className="countdown-unit-label">MIN</span>
         </div>
         <span className="countdown-colon">:</span>
         <div className="countdown-unit">
-          <span className="countdown-number">{pad(parts.secs)}</span>
+          <span className="countdown-number"><SplitFlap value={pad(parts.secs)} chars={Presets.NUM} size="large" /></span>
           <span className="countdown-unit-label">SEC</span>
         </div>
       </div>

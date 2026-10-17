@@ -4,34 +4,9 @@ import './App.css'
 import TwitchPlayer from './TwitchPlayer'
 import DepartureBoard from './DepartureBoard'
 import CountdownToStart from './CountdownToStart'
-
-const POLL_INTERVAL_MS = 15 * 60 * 1000 // 15 minutes
-
-async function fetchSchedule() {
-  // Cache-bust so we always get the latest version during an event
-  const res = await fetch(`/schedule.json?_=${Date.now()}`)
-  if (!res.ok) throw new Error(`Failed to fetch schedule: ${res.status}`)
-  const data = await res.json()
-  // Schedule is a bare array
-  return Array.isArray(data) ? data : []
-}
-
-/**
- * Given a schedule array and the current UTC timestamp, return the index of
- * the active slot (startTimeUtc <= now < endTimeUtc).  Returns -1 if the
- * event hasn't started yet, and schedule.length - 1 when it has ended.
- */
-function getActiveIndex(schedule, now) {
-  for (let i = 0; i < schedule.length; i++) {
-    const start = new Date(schedule[i].start_time_utc).getTime()
-    const end = new Date(schedule[i].end_time_utc).getTime()
-    if (now >= start && now < end) return i
-  }
-  // Before event starts
-  if (schedule.length > 0 && now < new Date(schedule[0].start_time_utc).getTime()) return -1
-  // After event ends (or past the last slot)
-  return schedule.length > 0 ? schedule.length : -1
-}
+import EventHero from './EventHero'
+import SiteFooter from './SiteFooter'
+import { POLL_INTERVAL_MS, fetchSchedule, getActiveIndex } from './schedule'
 
 function formatCountdown(end_time_utc, now) {
   const distance = new Date(end_time_utc).getTime() - now
@@ -81,7 +56,7 @@ function App() {
     const timer = setInterval(() => {
       const now = Date.now()
 
-      setTimeString(new Date().toLocaleTimeString())
+      setTimeString(new Date().toLocaleTimeString([], { hourCycle: 'h23' }))
 
       const sched = scheduleRef.current
       if (sched.length === 0) return
@@ -125,6 +100,8 @@ function App() {
           </div>
         </header>
 
+        <EventHero schedule={schedule} />
+
         {activeIndex === -1 ? (
           <div className="now-panel now-panel--pre-event">
             <CountdownToStart
@@ -161,6 +138,7 @@ function App() {
         )}
 
         <DepartureBoard schedule={schedule} activeIndex={activeIndex} />
+        <SiteFooter />
       </div>
     </>
   )

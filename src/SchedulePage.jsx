@@ -1,25 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import DepartureBoard from './DepartureBoard'
+import SiteFooter from './SiteFooter'
+import { POLL_INTERVAL_MS, fetchSchedule, getActiveIndex } from './schedule'
 import './App.css'
-
-const POLL_INTERVAL_MS = 15 * 60 * 1000
-
-async function fetchSchedule() {
-  const res = await fetch(`/schedule.json?_=${Date.now()}`)
-  if (!res.ok) throw new Error(`Failed to fetch schedule: ${res.status}`)
-  const data = await res.json()
-  return Array.isArray(data) ? data : []
-}
-
-function getActiveIndex(schedule, now) {
-  for (let i = 0; i < schedule.length; i++) {
-    const start = new Date(schedule[i].start_time_utc).getTime()
-    const end = new Date(schedule[i].end_time_utc).getTime()
-    if (now >= start && now < end) return i
-  }
-  if (schedule.length > 0 && now < new Date(schedule[0].start_time_utc).getTime()) return -1
-  return schedule.length > 0 ? schedule.length : -1
-}
 
 export default function SchedulePage() {
   const [schedule, setSchedule] = useState([])
@@ -68,6 +51,7 @@ export default function SchedulePage() {
         )}
       </header>
       <DepartureBoard schedule={schedule} activeIndex={activeIndex} />
+      <SiteFooter />
     </div>
   )
 }
