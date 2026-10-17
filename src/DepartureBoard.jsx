@@ -22,7 +22,6 @@ export default function DepartureBoard({ schedule, activeIndex }) {
       <div className="board-header">
         <span>TIME</span>
         <span>DESTINATION</span>
-        <span>DURATION</span>
         <span>STATUS</span>
       </div>
       <div className="board-rows">
@@ -34,10 +33,6 @@ export default function DepartureBoard({ schedule, activeIndex }) {
           if (midEvent && index < activeIndex) return null
 
           const isCurrent = index === activeIndex
-
-          const startMs = new Date(item.start_time_utc).getTime()
-          const endMs = new Date(item.end_time_utc).getTime()
-          const durationMinutes = Math.round((endMs - startMs) / (1000 * 60))
 
           // Display the scheduled start time in local time
           const startDate = new Date(item.start_time_utc)
@@ -59,13 +54,12 @@ export default function DepartureBoard({ schedule, activeIndex }) {
                 <span className="row-time-clock">{departureTime}</span>
                 <span className="row-time-date">{departureDate}</span>
               </span>
-              <span className="row-name">
-                {item.twitch_channel
-                  ? <a href={`https://twitch.tv/${item.twitch_channel}`} target="_blank" rel="noopener noreferrer" className="row-twitch-link">{name}</a>
-                  : name}
-              </span>
-              <span className="row-duration">
-                {durationMinutes > 0 ? `${durationMinutes} MIN` : '--'}
+              <span className="row-name" style={{ '--name-chars': name.length }}>
+                <span className="row-name-text">
+                  {item.twitch_channel
+                    ? <a href={`https://twitch.tv/${item.twitch_channel}`} target="_blank" rel="noopener noreferrer" className="row-twitch-link">{name}</a>
+                    : name}
+                </span>
               </span>
               <span className="row-status">{isCurrent ? 'ALL ABOARD' : 'ON TIME'}</span>
             </div>

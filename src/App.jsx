@@ -118,9 +118,8 @@ function App() {
             {timeString && (
               <SplitFlap
                 value={timeString}
-                presets={Presets.NUM}
-                width={100}
-                height={100}
+                chars={Presets.NUM}
+                size="medium"
               />
             )}
           </div>
@@ -136,21 +135,19 @@ function App() {
           <div className="now-panel">
             <div className="now-info">
               <div className="now-label">NOW DEPARTING</div>
-              <div id="now-name">
+              <div id="now-name" style={{ '--flap-chars': displayName.length }}>
                 <SplitFlap
                   value={displayName}
-                  presets={Presets.ALPHA}
-                  width={300}
-                  height={100}
+                  chars={Presets.SPECIAL}
+                  size="medium"
                 />
               </div>
               <div className="next-label">NEXT DEPARTURE IN</div>
               <div id="countdown">
                 <SplitFlap
                   value={countdownString}
-                  presets={Presets.NUM}
-                  width={300}
-                  height={100}
+                  chars={Presets.NUM}
+                  size="medium"
                 />
               </div>
             </div>

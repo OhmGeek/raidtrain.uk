@@ -205,7 +205,8 @@
 
 .board-header {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+  column-gap: 12px;
   color: #888;
   font-weight: bold;
   padding: 10px 0;
@@ -214,11 +215,28 @@
 
 .board-row {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr 1fr;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 2fr) minmax(0, 1fr);
+  column-gap: 12px;
   padding: 12px 0;
   border-bottom: 1px solid #1a1a24;
   color: #e0e0e0;
   font-size: 1.1rem;
+}
+
+/* Long names shrink to fit their column (Courier glyphs are ~0.6em wide),
+   down to a readable floor; past that they wrap. */
+.row-name {
+  container-type: inline-size;
+  overflow-wrap: anywhere;
+}
+
+.row-name-text {
+  font-size: clamp(0.7rem, calc(100cqw / (var(--name-chars, 10) * 0.62)), 1em);
+}
+
+.board-header span:last-child,
+.row-status {
+  text-align: right;
 }
 
 .row-time {
@@ -263,6 +281,45 @@
   }
 }
 
+@media (max-width: 600px) {
+  .schedule-board {
+    padding: 12px;
+    border-width: 2px;
+  }
+
+  .schedule-board h2 {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+
+  .board-header {
+    grid-template-columns: 4.5rem minmax(0, 1fr) auto;
+    column-gap: 8px;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+  }
+
+  .board-row {
+    grid-template-columns: 4.5rem minmax(0, 1fr) auto;
+    column-gap: 8px;
+    font-size: 0.85rem;
+    padding: 10px 0;
+  }
+
+  .row-time-clock {
+    font-size: 0.9rem;
+  }
+
+  .row-time-date {
+    font-size: 0.65rem;
+  }
+
+  .row-status {
+    font-size: 0.75rem;
+    white-space: nowrap;
+  }
+}
+
 /* Ensure the station container handles spacing correctly */
 .train-station-container {
   max-width: 1200px;
@@ -300,6 +357,49 @@
   max-width: 850px;
   /* Caps the maximum player size */
   width: 100%;
+}
+
+/* Shrink the split-flap name so long streamer names fit their column.
+   Alpha flaps are 1.7ch (~1.02em) wide plus a 2px gap; 1.1 leaves headroom.
+   Below 16px the name wraps onto a second row instead of shrinking further. */
+#now-name {
+  container-type: inline-size;
+}
+
+#now-name .split-flap-display {
+  flex-wrap: wrap;
+  row-gap: 4px;
+  font-size: clamp(16px, calc((100cqw - var(--flap-chars, 10) * 2px) / (var(--flap-chars, 10) * 1.1)), 36px);
+}
+
+@media (max-width: 600px) {
+  .train-station-container {
+    padding: 8px 0;
+  }
+
+  header {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .now-panel {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 16px;
+  }
+
+  .now-info {
+    min-width: 0;
+    width: 100%;
+  }
+
+  #twitch-wrap {
+    flex: none;
+    min-width: 0;
+    width: 100%;
+    height: auto;
+  }
 }
 
 /* Flawless 16:9 Aspect Ratio container wrapper */
