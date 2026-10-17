@@ -265,3 +265,33 @@
     letter-spacing: 0.1em;
     color: #666;
   }
+
+  @media (max-width: 600px) {
+    .countdown-to-start {
+      padding: 20px 4px;
+      gap: 10px;
+    }
+
+    .countdown-digits {
+      gap: 2px;
+    }
+
+    .countdown-number {
+      font-size: clamp(1.75rem, 8vw, 3.5rem);
+      letter-spacing: 0;
+    }
+
+    .countdown-colon {
+      font-size: clamp(1.5rem, 7vw, 3rem);
+    }
+
+    .countdown-unit-label {
+      font-size: 0.55rem;
+      letter-spacing: 0.1em;
+    }
+
+    .countdown-date {
+      font-size: 0.65rem;
+      letter-spacing: 0.05em;
+    }
+  }
