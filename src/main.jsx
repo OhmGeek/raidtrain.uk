@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import SchedulePage from './SchedulePage.jsx'
+import CommandsPage from './CommandsPage.jsx'
 import OverlaysPage from './overlays/OverlaysPage.jsx'
 import TotalOverlay from './overlays/TotalOverlay.jsx'
 import RecentOverlay from './overlays/RecentOverlay.jsx'
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/schedule" element={<SchedulePage />} />
+        <Route path="/commands" element={<CommandsPage />} />
         <Route path="/overlays" element={<OverlaysPage />} />
         <Route path="/overlay/total" element={<TotalOverlay />} />
         <Route path="/overlay/recent" element={<RecentOverlay />} />

@@ -53,7 +53,7 @@ function validateSchedulePlugin() {
 // Client-side routes in src/main.jsx. GitHub Pages only serves files that exist,
 // so each route gets its own copy of index.html (served with a 200, unlike the
 // 404.html fallback, which matters for OBS browser sources).
-const STATIC_ROUTES = ['schedule', 'overlays', 'overlay/total', 'overlay/recent', 'overlay/top']
+const STATIC_ROUTES = ['schedule', 'commands', 'overlays', 'overlay/total', 'overlay/recent', 'overlay/top']
 
 function staticRoutesPlugin() {
   return {

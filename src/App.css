@@ -619,3 +619,49 @@
 .event-hero__dates {
   white-space: nowrap;
 }
+
+/* ── /commands page ── */
+.commands-intro {
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.commands-board {
+  margin-top: 16px;
+}
+
+.commands-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 4px 16px;
+  padding: 10px 0;
+  border-bottom: 1px solid #1a1a24;
+  color: #e0e0e0;
+}
+
+.commands-row:last-child {
+  border-bottom: 0;
+}
+
+.commands-row__names {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.commands-row__names code {
+  color: #ffb703;
+  font-weight: bold;
+  font-size: 1.05rem;
+}
+
+.commands-row__names code + code::before {
+  content: '/ ';
+  color: #666;
+  font-weight: normal;
+}
+
+.commands-row__summary {
+  color: #aaa;
+}

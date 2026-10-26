@@ -7,6 +7,7 @@ export default function SiteFooter() {
       <nav className="site-footer__links">
         <Link to="/">Home</Link>
         <Link to="/schedule">Full schedule</Link>
+        <Link to="/commands">Bot commands</Link>
         <Link to="/overlays">Stream overlays</Link>
         <a href={JUSTGIVING_URL} target="_blank" rel="noopener noreferrer">Donate</a>
         <a href={CHARITY_EVENT_URL} target="_blank" rel="noopener noreferrer">MFT Charity</a>
