@@ -7,6 +7,7 @@ const SECTIONS = [
   {
     title: 'INFO',
     commands: [
+      { names: ['!commands', '!help'], summary: 'This page' },
       { names: ['!timetable'], summary: 'Schedule link' },
       { names: ['!conductor'], summary: 'About the bot' },
       { names: ['!coal', '!fuel', '!donate'], summary: 'Donation link' },
