@@ -2,7 +2,7 @@ import SiteFooter from './SiteFooter'
 import './App.css'
 
 // Mirrors the bot's commands in RaidTrainConductor (the `commands` map in
-// raidtrain-config.json, plus the steam economy handler)
+// raidtrain-config.json, plus the steam economy and journey handlers)
 const SECTIONS = [
   {
     title: 'INFO',
@@ -10,9 +10,17 @@ const SECTIONS = [
       { names: ['!commands', '!help'], summary: 'This page' },
       { names: ['!timetable'], summary: 'Schedule link' },
       { names: ['!conductor'], summary: 'About the bot' },
-      { names: ['!coal', '!fuel', '!donate'], summary: 'Donation link' },
+      { names: ['!coal', '!fuel', '!donate', '!dono'], summary: 'Donation link' },
       { names: ['!manifest', '!rmch', '!mft'], summary: 'About the charity' },
       { names: ['!ticket'], summary: 'Thanks for watching' },
+    ],
+  },
+  {
+    title: 'JOURNEY',
+    commands: [
+      { names: ['!nowserving'], summary: "Who's live now" },
+      { names: ['!nextstop'], summary: "Who's up next" },
+      { names: ['!journey'], summary: 'Trip progress' },
     ],
   },
   {
@@ -32,6 +40,7 @@ const SECTIONS = [
       { names: ['!honk'], summary: 'Class 37 joy' },
       { names: ['!buffet'], summary: 'Buffet car open' },
       { names: ['!thomas'], summary: 'Theme tune' },
+      { names: ['!delay'], summary: 'Random delay excuse' },
       { names: ['!sleep'], summary: 'Bot never sleeps' },
     ],
   },
