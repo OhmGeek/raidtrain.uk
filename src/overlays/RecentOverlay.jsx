@@ -17,7 +17,7 @@ export default function RecentOverlay() {
         <div key={d.id} className="jg-list__row">
           <span className="jg-list__name">{d.name}</span>
           {d.amount !== null && (
-            <span className="jg-list__amount">{formatMoney(d.amount, totals.currencyCode)}</span>
+            <span className="jg-list__amount">{formatMoney(d.amount, d.currencyCode || totals.currencyCode)}</span>
           )}
           {showMessages && d.message && <div className="jg-list__message">{d.message}</div>}
         </div>

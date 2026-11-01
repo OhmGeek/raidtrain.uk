@@ -42,6 +42,8 @@ async function fetchDonationPage(page, pageNum, pageSize) {
     name: d.donorDisplayName?.trim() || 'Anonymous',
     // amount is null when the donor chose to hide it
     amount: toNumber(d.amount),
+    // amount is in the donor's own currency, not the page's (e.g. 50 USD)
+    currencyCode: d.currencyCode || null,
     message: d.message?.trim() || '',
     date: parseJgDate(d.donationDate),
   }))
