@@ -255,20 +255,13 @@
     "twitch_channel": "georgiapalmermusic",
     "streamer_name": "georgiapalmermusic",
     "start_time_utc": "2026-11-02T14:00:00.000Z",
-    "end_time_utc": "2026-11-02T16:00:00.000Z",
-    "discord_name": ""
-  },
-  {
-    "twitch_channel": "jimlutzmusic",
-    "streamer_name": "jimlutzmusic",
-    "start_time_utc": "2026-11-02T16:00:00.000Z",
-    "end_time_utc": "2026-11-02T18:00:00.000Z",
+    "end_time_utc": "2026-11-02T17:00:00.000Z",
     "discord_name": ""
   },
   {
     "twitch_channel": "jazzvke",
     "streamer_name": "jazzvke",
-    "start_time_utc": "2026-11-02T18:00:00.000Z",
+    "start_time_utc": "2026-11-02T17:00:00.000Z",
     "end_time_utc": "2026-11-02T20:00:00.000Z",
     "discord_name": ""
   },
