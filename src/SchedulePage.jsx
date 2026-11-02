@@ -1,22 +1,16 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 import DepartureBoard from './DepartureBoard'
 import SiteFooter from './SiteFooter'
-import { POLL_INTERVAL_MS, fetchSchedule, getActiveIndex } from './schedule'
+import { POLL_INTERVAL_MS, fetchSchedule } from './schedule'
 import './App.css'
 
+// The /schedule page always shows the full list, regardless of the current
+// time, so no slot is ever hidden or marked as live/departed.
 export default function SchedulePage() {
   const [schedule, setSchedule] = useState([])
   const [scheduleError, setScheduleError] = useState(null)
-  const [activeIndex, setActiveIndex] = useState(-1)
-
-  const scheduleRef = useRef([])
-  useEffect(() => {
-    scheduleRef.current = schedule
-  }, [schedule])
 
   useEffect(() => {
-    let pollTimer
-
     async function load() {
       try {
         const entries = await fetchSchedule()
@@ -29,17 +23,8 @@ export default function SchedulePage() {
     }
 
     load()
-    pollTimer = setInterval(load, POLL_INTERVAL_MS)
+    const pollTimer = setInterval(load, POLL_INTERVAL_MS)
     return () => clearInterval(pollTimer)
-  }, [])
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      const sched = scheduleRef.current
-      if (sched.length === 0) return
-      setActiveIndex(getActiveIndex(sched, Date.now()))
-    }, 1000)
-    return () => clearInterval(timer)
   }, [])
 
   return (
@@ -50,7 +35,7 @@ export default function SchedulePage() {
           <div className="schedule-error">⚠ Could not load schedule: {scheduleError}</div>
         )}
       </header>
-      <DepartureBoard schedule={schedule} activeIndex={activeIndex} />
+      <DepartureBoard schedule={schedule} activeIndex={-1} />
       <SiteFooter />
     </div>
   )
